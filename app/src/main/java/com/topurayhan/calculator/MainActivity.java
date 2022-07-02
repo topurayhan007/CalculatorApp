@@ -185,11 +185,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     } else {
                         String str = number.substring(number.length() - 1);
-                        String str8 = number.substring(number.length() - 2);
                         if (str.equals("+") || (str.equals("(") && number.length()==1)) {
                             break;
                         }
-                        else if (str.equals("-") || str.equals("×") || str.equals("÷") && (!str8.equals("("))){
+                        else if (str.equals("-") || str.equals("×") || str.equals("÷")){
                             number = number.substring(0, number.length() - 1);
                             number += "+";
                         }
