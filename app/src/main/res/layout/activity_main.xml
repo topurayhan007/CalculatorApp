@@ -12,10 +12,10 @@
         android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/_0"
         android:gravity="right|center"
         android:paddingHorizontal="20dp"
         android:paddingTop="15dp"
+        android:text="@string/_0"
         android:textColor="@color/white"
         android:textSize="55sp"
         app:layout_constraintBottom_toTopOf="@+id/result"
@@ -35,11 +35,11 @@
         android:paddingBottom="15dp"
         android:textColor="#7c7c7c"
         android:textSize="40sp"
-        app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintTop_toBottomOf="@+id/info"
         app:layout_constraintBottom_toTopOf="@+id/table"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints,RtlHardcoded" />
 
     <TableLayout
@@ -51,6 +51,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:background="#030303"
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,63 +67,63 @@
 
             <Button
                 android:id="@+id/btnC"
-                android:onClick="clearAll"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="clearAll"
                 android:text="@string/ac"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnOB"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/OpenBracket"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnCB"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/ClosedBracket"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnDiv"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/divide"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
         </TableRow>
 
@@ -133,63 +134,63 @@
 
             <Button
                 android:id="@+id/btn7"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_7"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn8"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_8"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn9"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_9"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnMul"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/multiply"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
         </TableRow>
 
@@ -200,63 +201,63 @@
 
             <Button
                 android:id="@+id/btn4"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_4"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn5"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_5"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn6"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_6"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnSub"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/Minus"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
         </TableRow>
 
@@ -267,63 +268,63 @@
 
             <Button
                 android:id="@+id/btn1"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_1"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn2"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_2"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn3"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_3"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnAdd"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/Plus"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
         </TableRow>
 
@@ -334,64 +335,64 @@
 
             <Button
                 android:id="@+id/btnDel"
-                android:onClick="clearOneDigit"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="clearOneDigit"
                 android:text="@string/Del"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="OnClick,UsingOnClickInXml" />
+                tools:ignore="OnClick,UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btn0"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/_0"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnPoint"
-                android:onClick="buttonClick"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
-                android:layout_weight="1"
                 android:layout_margin="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/circle"
+                android:onClick="buttonClick"
                 android:text="@string/Point"
                 android:textColor="@color/white"
                 android:textSize="32sp"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
             <Button
                 android:id="@+id/btnEqual"
-                android:onClick="equalButtonEvent"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="80dp"
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/circle_equal"
+                android:onClick="equalButtonEvent"
                 android:text="@string/equal"
                 android:textColor="@color/black"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                tools:targetApi="lollipop"
-                tools:ignore="UsingOnClickInXml" />
+                tools:ignore="UsingOnClickInXml"
+                tools:targetApi="lollipop" />
 
         </TableRow>
 

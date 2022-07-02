@@ -185,12 +185,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     } else {
                         String str = number.substring(number.length() - 1);
+                        String str8 = number.substring(number.length() - 2);
                         if (str.equals("+") || (str.equals("(") && number.length()==1)) {
                             break;
                         }
-                        else if (str.equals("-") || str.equals("×") || str.equals("÷") || str.equals("(")){
+                        else if (str.equals("-") || str.equals("×") || str.equals("÷") && (!str8.equals("("))){
                             number = number.substring(0, number.length() - 1);
                             number += "+";
+                        }
+                        else if(str.equals("(")){
+                            break;
                         }
                         else {
                             number += "+";
@@ -212,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                         else if (str.equals("(") && number.length()==1){
                             number += "-";
                         }
-                        else if (str.equals("+") || str.equals("(")){
+                        else if (str.equals("+")){
                             number = number.substring(0, number.length() - 1);
                             number += "-";
                         }
@@ -234,9 +238,12 @@ public class MainActivity extends AppCompatActivity {
                         if (str.equals("÷")|| (str.equals("(") && number.length()==1)) {
                             break;
                         }
-                        else if (str.equals("+") || str.equals("×") || str.equals("-") || str.equals("(")){
+                        else if (str.equals("+") || str.equals("×") || str.equals("-")){
                             number = number.substring(0, number.length() - 1);
                             number += "÷";
+                        }
+                        else if(str.equals("(")){
+                            break;
                         }
                         else {
                             number += "÷";
@@ -255,9 +262,12 @@ public class MainActivity extends AppCompatActivity {
                         if (str.equals("×")|| (str.equals("(") && number.length()==1)) {
                             break;
                         }
-                        else if (str.equals("+") || str.equals("÷") || str.equals("-") || str.equals("(")){
+                        else if (str.equals("+") || str.equals("÷") || str.equals("-")){
                             number = number.substring(0, number.length() - 1);
                             number += "×";
+                        }
+                        else if(str.equals("(")){
+                            break;
                         }
                         else {
                             number += "×";
@@ -276,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
                 result.setText("= " + number);
                 char check;
                 check = number.charAt(number.length()-1);
-                if (check != '+' || check != '-' || check != '×' || check != '÷' || check!= '(' && (number.contains("+")
+                if (check != '+' || check != '-' || check != '×' || check != '÷' || check != '(' && (number.contains("+")
                         || number.contains("-") || number.contains("×") || number.contains("÷"))){
                     String res = calculateResult();
                     result.setText("= "+ res);
