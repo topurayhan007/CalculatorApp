@@ -1,7 +1,5 @@
 package com.topurayhan.calculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
@@ -9,18 +7,18 @@ import android.os.Vibrator;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.Stack;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 public class MainActivity extends AppCompatActivity {
-    Double a = 0.0;
-    Double b = 0.0;
-    Double c = 0.0;
-    Double res = 0.0;
-    String oldNumber = "";
-    String newNumber = "";
-    String temp = "";
-    int start = 0;
-    int end = 0;
+
     int i = 0, j = 0, k = 0;
 
     @Override
@@ -29,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+
     @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
-    public void buttonClick(View view){
+    public void buttonClick(View view) throws ScriptException {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(15);
 
@@ -123,9 +122,14 @@ public class MainActivity extends AppCompatActivity {
 
                 // Decimal Button function and error handling
                 case R.id.btnPoint:
-//                    String str = number.substring(number.length)
-                    if (number.contains(".") && !(number.contains("(") || number.contains(")") ||
-                            number.contains("+") || number.contains("-") || number.contains("×") || number.contains("÷"))) {
+                    String str3 = number.substring(number.length()-1);
+                    String input = number;
+                    input = input.replace('×', '*');
+                    input = input.replace('÷', '/');
+
+                    List<String> list = new ArrayList<String>(Arrays.asList(number.split("[)(+-÷×]")));
+                    if (str3.equals(".") || number.contains(".") && !(number.contains("(") || number.contains(")") ||
+                        number.contains("+") || number.contains("-") || number.contains("×") || number.contains("÷")) ) {
                         break;
                     }
                     else {
@@ -137,10 +141,17 @@ public class MainActivity extends AppCompatActivity {
 
                 // Open Bracket Button function and error handling
                 case R.id.btnOB:
+                    String str4 = number.substring(number.length()-1);
                     if (number.equals("0")) {
                         number = "(";
                         i++;
-                    } else {
+                    }
+                    else if (str4.equals("0") || str4.equals("1") || str4.equals("2") || str4.equals("3") || str4.equals("4") ||
+                            str4.equals("5") || str4.equals("6") || str4.equals("7") || str4.equals("8") || str4.equals("9") || str4.equals(")")){
+                        number += "×(";
+                        i++;
+                    }
+                    else {
                         number += "(";
                         i++;
                     }
@@ -263,7 +274,14 @@ public class MainActivity extends AppCompatActivity {
             else {
                 info.setText(number);
                 result.setText("= " + number);
-//                String str = calculateResult();
+                char check;
+                check = number.charAt(number.length()-1);
+                if (check != '+' || check != '-' || check != '×' || check != '÷' || check!= '(' && (number.contains("+")
+                        || number.contains("-") || number.contains("×") || number.contains("÷"))){
+                    String res = calculateResult();
+                    result.setText("= "+ res);
+                }
+
             }
 
         }
@@ -281,9 +299,6 @@ public class MainActivity extends AppCompatActivity {
         TextView info = findViewById(R.id.info);
         TextView result = findViewById(R.id.result);
 
-        a = 0.0;
-        b = 0.0;
-        c = 0.0;
         info.setText("0");
         result.setText("");
     }
@@ -304,9 +319,6 @@ public class MainActivity extends AppCompatActivity {
             result.setText("= " + chopString);
         }
         else if(chopString.length() == 0){
-            a = 0.0;
-            b = 0.0;
-            c = 0.0;
             info.setText("0");
             result.setText("");
         }
@@ -315,32 +327,59 @@ public class MainActivity extends AppCompatActivity {
 
 
     @SuppressLint("SetTextI18n")
-    public String calculateResult(){
+    public String calculateResult() {
         TextView info = findViewById(R.id.info);
         TextView result = findViewById(R.id.result);
 
-        String res; String input;
+        String res = "";
         String str = info.getText().toString();
 
-        input = str.replace('×', '*');
-        input = str.replace('÷', '/');
-     // input = str.replace('+', '+');
-     // input = str.replace('-', '-');
+        str = str.replace('×', '*');
+        str = str.replace('÷', '/');
+        str = str.replace('(', ' ');
+        str = str.replace(')', ' ');
 
-        double temp = Double.parseDouble(input);
-        res = Double.toString(temp);
+
+        if(str.length() > 1){
+
+            ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+            ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("rhino");
+
+            double temp = 0.0;
+
+            try {
+                temp = (double)scriptEngine.eval(str);
+            } catch (ScriptException e) {
+                e.printStackTrace();
+            }
+
+            if(temp == Double.POSITIVE_INFINITY || temp == Double.NEGATIVE_INFINITY){
+                res = Double.toString(temp);
+            }
+            else{
+                res = Double.toString(temp);
+                String decimal = res.split("\\.")[1];
+
+                if (decimal.equals("0")){
+                    res = res.split("\\.")[0];
+                }
+            }
+        }
+
 
         result.setText("= " + res);
         return res;
     }
 
 
-    public void equalButtonEvent(View view){
+    public void equalButtonEvent(View view) {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(15);
 
         TextView info = findViewById(R.id.info);
         TextView result = findViewById(R.id.result);
+
+        String str = info.getText().toString();
 
         String res = calculateResult();
         info.setText(res);
