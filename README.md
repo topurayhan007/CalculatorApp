@@ -4,7 +4,7 @@ A calculator with basic functionalities made using Android Studio.
 
 ## To use the app download this apk file:
 
-###https://github.com/topurayhan007/CalculatorApp/raw/main/APK/Calculator.apk
+ # https://github.com/topurayhan007/CalculatorApp/raw/main/APK/Calculator.apk
 
 ![Screenshot 1](Screenshots/1.jpg)
 
