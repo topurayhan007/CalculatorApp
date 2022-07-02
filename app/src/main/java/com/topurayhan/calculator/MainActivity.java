@@ -345,8 +345,8 @@ public class MainActivity extends AppCompatActivity {
 
         str = str.replace('×', '*');
         str = str.replace('÷', '/');
-        str = str.replace('(', ' ');
-        str = str.replace(')', ' ');
+//        str = str.replace('(', ' ');
+//        str = str.replace(')', ' ');
 
 
         if(str.length() > 1){
