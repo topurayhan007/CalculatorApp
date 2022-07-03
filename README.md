@@ -1,4 +1,4 @@
-# CalculatorApp
+# Calculator App
 
 A calculator with basic functionalities made using Android Studio.
 
