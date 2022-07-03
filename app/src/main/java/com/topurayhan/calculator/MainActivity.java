@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
-    public void buttonClick(View view) throws ScriptException {
+    public void buttonClick(View view)  {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(15);
 
@@ -127,9 +127,11 @@ public class MainActivity extends AppCompatActivity {
                     input = input.replace('×', '*');
                     input = input.replace('÷', '/');
 
-                    List<String> list = new ArrayList<String>(Arrays.asList(number.split("[)(+-÷×]")));
+                    List<String> list = new ArrayList<String>(Arrays.asList(number.split("[)(+-/*]")));
+                    String str9 = list.get(list.size()-1);
+
                     if (str3.equals(".") || number.contains(".") && !(number.contains("(") || number.contains(")") ||
-                        number.contains("+") || number.contains("-") || number.contains("×") || number.contains("÷")) ) {
+                        number.contains("+") || number.contains("-") || number.contains("×") || number.contains("÷")) && str9.contains(".")) {
                         break;
                     }
                     else {
@@ -282,13 +284,16 @@ public class MainActivity extends AppCompatActivity {
             }
             else {
                 info.setText(number);
-                result.setText("= " + number);
+
                 char check;
                 check = number.charAt(number.length()-1);
                 if (check != '+' || check != '-' || check != '×' || check != '÷' || check != '(' && (number.contains("+")
                         || number.contains("-") || number.contains("×") || number.contains("÷"))){
                     String res = calculateResult();
                     result.setText("= "+ res);
+                }
+                else {
+                    result.setText("= " + number);
                 }
 
             }
@@ -323,13 +328,14 @@ public class MainActivity extends AppCompatActivity {
 
         String str = info.getText().toString();
         String chopString = str.substring(0, str.length() - 1);
-        if (chopString.length() > 0){
-            info.setText(chopString);
-            result.setText("= " + chopString);
-        }
-        else if(chopString.length() == 0){
+        if (chopString.length() == 0){
             info.setText("0");
             result.setText("");
+
+        }
+        else if(chopString.length() > 0){
+            info.setText(chopString);
+            result.setText("= " + chopString);
         }
 
     }
@@ -345,8 +351,6 @@ public class MainActivity extends AppCompatActivity {
 
         str = str.replace('×', '*');
         str = str.replace('÷', '/');
-//        str = str.replace('(', ' ');
-//        str = str.replace(')', ' ');
 
 
         if(str.length() > 1){
@@ -388,7 +392,15 @@ public class MainActivity extends AppCompatActivity {
         TextView info = findViewById(R.id.info);
         TextView result = findViewById(R.id.result);
 
-        String str = info.getText().toString();
+        StringBuilder str = new StringBuilder(info.getText().toString());
+
+        if(j < i){
+            int diff = i - j;
+            for (int m = 0; m < diff; m++){
+                str.append(")");
+            }
+            info.setText(str.toString());
+        }
 
         String res = calculateResult();
         info.setText(res);
