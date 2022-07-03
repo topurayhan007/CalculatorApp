@@ -1,8 +1,8 @@
 # Calculator App
 
-A calculator with basic functionalities made using Android Studio.
+## A calculator with basic functionalities made using Android Studio.
 
-## To use the app download this apk file:
+. To use the app download this apk file:
 
  ### https://github.com/topurayhan007/CalculatorApp/raw/main/APK/Calculator.apk
  
