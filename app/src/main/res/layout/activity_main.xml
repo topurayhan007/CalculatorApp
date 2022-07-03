@@ -77,7 +77,6 @@
                 android:text="@string/ac"
                 android:textColor="#cae962"
                 android:textSize="32sp"
-                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -350,6 +349,7 @@
                 android:background="@drawable/circle"
                 android:onClick="clearOneDigit"
                 android:text="@string/Del"
+                android:textAllCaps="false"
                 android:textColor="#cae962"
                 android:textSize="32sp"
                 android:textStyle="bold"

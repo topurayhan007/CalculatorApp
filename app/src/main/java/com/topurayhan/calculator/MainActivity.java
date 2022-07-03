@@ -134,6 +134,12 @@ public class MainActivity extends AppCompatActivity {
                         number.contains("+") || number.contains("-") || number.contains("×") || number.contains("÷")) && str9.contains(".")) {
                         break;
                     }
+                    else if(str3.equals("+") || str3.equals("-")|| str3.equals("×")|| str3.equals("÷")|| str3.equals("(")){
+                        number += "0.";
+                    }
+                    else if (str3.equals(")")){
+                        number += "×0.";
+                    }
                     else {
                         number += ".";
                         k++;
@@ -284,17 +290,18 @@ public class MainActivity extends AppCompatActivity {
             }
             else {
                 info.setText(number);
+                result.setText("= " + number);
 
-                char check;
-                check = number.charAt(number.length()-1);
-                if (check != '+' || check != '-' || check != '×' || check != '÷' || check != '(' && (number.contains("+")
-                        || number.contains("-") || number.contains("×") || number.contains("÷"))){
-                    String res = calculateResult();
-                    result.setText("= "+ res);
+                if (number.length() > 1){
+                    char check;
+                    check = number.charAt(number.length()-1);
+                    if (check != '+' || check != '-' || check != '×' || check != '÷' || check != '(' && (number.contains("+")
+                            || number.contains("-") || number.contains("×") || number.contains("÷"))){
+                        String res = calculateResult();
+                        result.setText("= "+ res);
+                    }
                 }
-                else {
-                    result.setText("= " + number);
-                }
+
 
             }
 
@@ -392,18 +399,19 @@ public class MainActivity extends AppCompatActivity {
         TextView info = findViewById(R.id.info);
         TextView result = findViewById(R.id.result);
 
-        StringBuilder str = new StringBuilder(info.getText().toString());
+        String str = info.getText().toString();
 
         if(j < i){
             int diff = i - j;
             for (int m = 0; m < diff; m++){
-                str.append(")");
+                str += ")";
             }
-            info.setText(str.toString());
+            info.setText(str);
         }
 
         String res = calculateResult();
         info.setText(res);
         result.setText("");
+        i = 0; j = 0;
     }
 }
