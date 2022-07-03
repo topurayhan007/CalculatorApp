@@ -72,11 +72,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_top"
                 android:onClick="clearAll"
                 android:text="@string/ac"
                 android:textColor="#cae962"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -87,11 +88,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_top"
                 android:onClick="buttonClick"
                 android:text="@string/OpenBracket"
                 android:textColor="#cae962"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -102,11 +104,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_top"
                 android:onClick="buttonClick"
                 android:text="@string/ClosedBracket"
                 android:textColor="#cae962"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -117,11 +120,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_side"
                 android:onClick="buttonClick"
                 android:text="@string/divide"
-                android:textColor="#cae962"
+                android:textColor="@color/black"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -184,11 +188,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_side"
                 android:onClick="buttonClick"
                 android:text="@string/multiply"
-                android:textColor="#cae962"
+                android:textColor="@color/black"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -251,11 +256,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_side"
                 android:onClick="buttonClick"
                 android:text="@string/Minus"
-                android:textColor="#cae962"
+                android:textColor="@color/black"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -318,11 +324,12 @@
                 android:layout_height="78dp"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle_side"
                 android:onClick="buttonClick"
                 android:text="@string/Plus"
-                android:textColor="#cae962"
+                android:textColor="@color/black"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
@@ -343,8 +350,9 @@
                 android:background="@drawable/circle"
                 android:onClick="clearOneDigit"
                 android:text="@string/Del"
-                android:textColor="@color/white"
+                android:textColor="#cae962"
                 android:textSize="32sp"
+                android:textStyle="bold"
                 tools:ignore="OnClick,UsingOnClickInXml"
                 tools:targetApi="lollipop" />
 
