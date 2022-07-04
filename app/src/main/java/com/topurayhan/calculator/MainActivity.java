@@ -159,6 +159,9 @@ public class MainActivity extends AppCompatActivity {
                         number += "×(";
                         i++;
                     }
+                    else if(str4.equals(".")){
+                        break;
+                    }
                     else {
                         number += "(";
                         i++;
@@ -173,12 +176,14 @@ public class MainActivity extends AppCompatActivity {
                         if (number.contains("(") && !str1.equals("(")) {
                             number += ")";
                             j++;
-                        } else if (number.equals("0")) {
-                            number = "";
-                            break;
-                        } else {
-                            break;
                         }
+                    }
+                    else if (str1.equals("0") && number.length() == 1) {
+                        number = "";
+                        break;
+                    }
+                    else if (str1.equals("+") || str1.equals("-")|| str1.equals("×")|| str1.equals("÷") || str1.equals(".")) {
+                        break;
                     }
                     else{
                         break;
@@ -200,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                             number = number.substring(0, number.length() - 1);
                             number += "+";
                         }
-                        else if(str.equals("(")){
+                        else if(str.equals("(") || str.equals(".")){
                             break;
                         }
                         else {
@@ -217,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         String str = number.substring(number.length() - 1);
-                        if (str.equals("-")) {
+                        if (str.equals("-") || str.equals(".")) {
                             break;
                         }
                         else if (str.equals("(") && number.length()==1){
@@ -249,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
                             number = number.substring(0, number.length() - 1);
                             number += "÷";
                         }
-                        else if(str.equals("(")){
+                        else if(str.equals("(") || str.equals(".")){
                             break;
                         }
                         else {
@@ -273,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
                             number = number.substring(0, number.length() - 1);
                             number += "×";
                         }
-                        else if(str.equals("(")){
+                        else if(str.equals("(") || str.equals(".")){
                             break;
                         }
                         else {
@@ -322,6 +327,7 @@ public class MainActivity extends AppCompatActivity {
 
         info.setText("0");
         result.setText("");
+        i = 0; j = 0;
     }
 
 
@@ -334,11 +340,35 @@ public class MainActivity extends AppCompatActivity {
         TextView result = findViewById(R.id.result);
 
         String str = info.getText().toString();
+        char check = str.charAt(str.length()-1);
         String chopString = str.substring(0, str.length() - 1);
-        if (chopString.length() == 0){
+
+        if (chopString.length() == 0 && check == '(' ){
+            i--;
             info.setText("0");
             result.setText("");
 
+        }
+        else if (chopString.length() == 0 && check == ')' ){
+            j--;
+            info.setText("0");
+            result.setText("");
+
+        }
+        else if (chopString.length() == 0){
+            info.setText("0");
+            result.setText("");
+
+        }
+        else if(chopString.length() > 0 && check == '('){
+            i--;
+            info.setText(chopString);
+            result.setText("= " + chopString);
+        }
+        else if(chopString.length() > 0 && check == ')'){
+            j--;
+            info.setText(chopString);
+            result.setText("= " + chopString);
         }
         else if(chopString.length() > 0){
             info.setText(chopString);
