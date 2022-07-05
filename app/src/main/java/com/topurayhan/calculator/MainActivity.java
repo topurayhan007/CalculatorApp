@@ -431,18 +431,19 @@ public class MainActivity extends AppCompatActivity {
 
         String str = info.getText().toString();
 
-        if(j < i){
-            int diff = i - j;
-            for (int m = 0; m < diff; m++){
-                str += ")";
+        if(!str.equals("0") && str.length() != 1){
+            if(j < i){
+                int diff = i - j;
+                for (int m = 0; m < diff; m++){
+                    str += ")";
+                }
+                info.setText(str);
             }
-            info.setText(str);
+
+            String res = calculateResult();
+            info.setText(res);
+            result.setText("");
         }
-
-        String res = calculateResult();
-        info.setText(res);
-        result.setText("");
-
         i = 0; j = 0;
     }
 }
