@@ -19,7 +19,7 @@ import javax.script.ScriptException;
 
 public class MainActivity extends AppCompatActivity {
 
-    int i = 0, j = 0, k = 0;
+    int i = 0, j = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    // All button event and error handling
     @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
     public void buttonClick(View view)  {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -127,22 +129,23 @@ public class MainActivity extends AppCompatActivity {
                     input = input.replace('×', '*');
                     input = input.replace('÷', '/');
 
-                    List<String> list = new ArrayList<String>(Arrays.asList(number.split("[)(+-/*]")));
-                    String str9 = list.get(list.size()-1);
-
-                    if (str3.equals(".") || number.contains(".") && !(number.contains("(") || number.contains(")") ||
-                        number.contains("+") || number.contains("-") || number.contains("×") || number.contains("÷")) && str9.contains(".")) {
-                        break;
+                    List<String> list = new ArrayList<String>(Arrays.asList(input.split("[-)(+/*]")));
+                    String str9 = "";
+                    if (number.length() > 1){
+                        str9 = list.get(list.size()-1);
                     }
-                    else if(str3.equals("+") || str3.equals("-")|| str3.equals("×")|| str3.equals("÷")|| str3.equals("(")){
+
+                    if(str3.equals("+") || str3.equals("-")|| str3.equals("×")|| str3.equals("÷")|| str3.equals("(")){
                         number += "0.";
+                    }
+                    else if (str3.equals(".") || number.contains(".") && str9.contains(".")) {
+                        break;
                     }
                     else if (str3.equals(")")){
                         number += "×0.";
                     }
                     else {
                         number += ".";
-                        k++;
                     }
                     break;
 
@@ -194,8 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 // Addition Button function and error handling
                 case R.id.btnAdd:
                     if (number.equals("0")) {
-                        number = "";
-                        break;
+                        number += "+";
                     } else {
                         String str = number.substring(number.length() - 1);
                         if (str.equals("+") || (str.equals("(") && number.length()==1)) {
@@ -218,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 // Subtraction Button function and error handling
                 case R.id.btnSub:
                     if (number.equals("0")) {
-                        number = "-";
+                        number += "-";
                     }
                     else {
                         String str = number.substring(number.length() - 1);
@@ -300,24 +302,22 @@ public class MainActivity extends AppCompatActivity {
                 if (number.length() > 1){
                     char check;
                     check = number.charAt(number.length()-1);
+
                     if (check != '+' || check != '-' || check != '×' || check != '÷' || check != '(' && (number.contains("+")
                             || number.contains("-") || number.contains("×") || number.contains("÷"))){
                         String res = calculateResult();
                         result.setText("= "+ res);
                     }
                 }
-
-
             }
-
         }
         else{
             vibrator.vibrate(100);
         }
-
     }
 
 
+    // AC or clear all button method
     public void clearAll(View view) {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(15);
@@ -331,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // Delete button method
     @SuppressLint("SetTextI18n")
     public void clearOneDigit(View view) {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -374,10 +375,9 @@ public class MainActivity extends AppCompatActivity {
             info.setText(chopString);
             result.setText("= " + chopString);
         }
-
     }
 
-
+    // Method to calculate result
     @SuppressLint("SetTextI18n")
     public String calculateResult() {
         TextView info = findViewById(R.id.info);
@@ -416,12 +416,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
         result.setText("= " + res);
         return res;
     }
 
 
+    // Equal button event and its error handling
     public void equalButtonEvent(View view) {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(15);
@@ -442,6 +442,7 @@ public class MainActivity extends AppCompatActivity {
         String res = calculateResult();
         info.setText(res);
         result.setText("");
+
         i = 0; j = 0;
     }
 }
