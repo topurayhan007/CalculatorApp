@@ -175,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
                 // Closed Bracket Button function and error handling
                 case R.id.btnCB:
                     String str1 = number.substring(number.length() - 1);
+                    if (str1.equals("+") || str1.equals("-")|| str1.equals("×")|| str1.equals("÷") || str1.equals(".")) {
+                        break;
+                    }
                     if(j < i) {
                         if (number.contains("(") && !str1.equals("(")) {
                             number += ")";
@@ -185,12 +188,10 @@ public class MainActivity extends AppCompatActivity {
                         number = "";
                         break;
                     }
-                    else if (str1.equals("+") || str1.equals("-")|| str1.equals("×")|| str1.equals("÷") || str1.equals(".")) {
-                        break;
-                    }
                     else{
                         break;
                     }
+
                     break;
 
 
